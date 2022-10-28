@@ -1,5 +1,7 @@
 let playerAttack
 let enemyAttack
+let playerLives = 3
+let enemyLives = 3
 
 function startGame() {
 	let buttonPet = document.getElementById('button-select-pet')
@@ -88,12 +90,27 @@ function randomEnemyAttack() {
 }
 
 function combat() {
+	let spanPlayerlives = document.getElementById('player-lives')
+	let spanEnemylives = document.getElementById('enemy-lives')
+
 	if (playerAttack == enemyAttack) {
 		createMessage('Empate!')
 	} else if (playerAttack == 'Fuego' && enemyAttack == 'Tierra' || playerAttack == 'Agua' && enemyAttack == 'Fuego' || playerAttack == 'Agua' && enemyAttack == 'Fuego' || playerAttack == 'Tierra' && enemyAttack == 'Agua') {
 		createMessage('Ganaste!')
+		enemyLives--
+		spanEnemylives.innerHTML = enemyLives
 	} else {
 		createMessage('Perdiste!')
+		playerLives--
+		spanPlayerlives.innerHTML = playerLives
+	}
+	checkLives()
+}
+function checkLives() {
+	if (enemyLives == 0) {
+		finalMessage('Felicitaciones!, Ganaste!')
+	} else if (playerLives == 0) {
+		finalMessage('Perdiste :c')
 	}
 }
 
@@ -103,6 +120,15 @@ function createMessage(result) {
 	paragraph.innerHTML = 'Tu mascota atacó con ' + playerAttack + ',  la mascota del enermigo atacó con ' + enemyAttack + '. ' + result
 
 	sectionMessages.appendChild(paragraph)
+}
+
+function finalMessage(finalGame) {
+	let sectionMessages = document.getElementById('messages')
+	let paragraph = document.createElement('p')
+	paragraph.innerHTML = finalGame
+
+	sectionMessages.appendChild(paragraph)
+
 }
 
 function random(min, max) {
