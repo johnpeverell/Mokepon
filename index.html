@@ -30,23 +30,23 @@
 		<label for="pydos">Pydos</label>
 		<input type="radio" name="pet" id="pydos">
 
-		<button>Seleccionar</button>
+		<button id="button-select-pet">Seleccionar</button>
 	</section>
 	<section id="select-attack">
 		<h2>Elige tu ataque</h2>
-		<p>Tu mascota tiene <span>3</span> vidas</p>
-		<p>La mascota del enemigo tiene <span>3</span> vidas</p>
+		<p>Tu mascota <span id="pet-player"></span> tiene <span id="pet-player-lives"></span> vidas</p>
+		<p>La mascota <span id="pet-enemy"></span> del enemigo tiene <span id="pet-enemy-lives"></span> vidas</p>
 		<p>
-			<button>Fuego</button>
-			<button>Agua</button>
-			<button>Tierra</button>
+			<button id="button-fire">Fuego</button>
+			<button id="button-water">Agua</button>
+			<button id="button-earth">Tierra</button>
 		</p>
 	</section>
 	<section id="messages">
 		<p>Tu mascota atacó con Fuego, la mascota del enermigo atacó con Tierra - GANASTE!</p>
 	</section>
 	<section id="restart">
-		<button>Reiniciar</button>
+		<button id="button-restart">Reiniciar</button>
 	</section>
 </body>
 </html>
