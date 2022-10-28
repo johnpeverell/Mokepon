@@ -1,6 +1,16 @@
+let playerAttack
+let enemyAttack
+
 function startGame() {
 	let buttonPet = document.getElementById('button-select-pet')
 	buttonPet.addEventListener('click', selectPetPlayer)
+
+	let buttonFire = document.getElementById('button-fire')
+	buttonFire.addEventListener('click', fireAttack)
+	let buttonWater = document.getElementById('button-water')
+	buttonWater.addEventListener('click', waterAttack)
+	let buttonEarth = document.getElementById('button-earth')
+	buttonEarth.addEventListener('click', earthAttack)
 }
 
 function selectPetPlayer() {
@@ -27,6 +37,76 @@ function selectPetPlayer() {
 	} else {
 		alert('Debes seleccionar una mascota')
 	}
+
+	selectPetEnemy()
+}
+
+function selectPetEnemy() {
+		let randomPetEnemy = random(1,6)
+		let spanPetEnemy = document.getElementById('pet-enemy')
+
+		if (randomPetEnemy == 1) {
+			spanPetEnemy.innerHTML = 'Hipodogue'
+			} else if (randomPetEnemy == 2) {
+				spanPetEnemy.innerHTML = 'Capipepo'
+			} else if (randomPetEnemy == 3) {
+				spanPetEnemy.innerHTML = 'Ratigueya'
+			} else if (randomPetEnemy == 4) {
+				spanPetEnemy.innerHTML = 'Langostelvis'
+			} else if (randomPetEnemy == 5) {
+				spanPetEnemy.innerHTML = 'Tucapalma'
+			} else {
+				spanPetEnemy.innerHTML = 'Pydos'
+			}
+
+		}
+
+function fireAttack() {
+	playerAttack = 'Fuego'
+	randomEnemyAttack()
+}
+function waterAttack() {
+	playerAttack = 'Agua'
+	randomEnemyAttack()
+}
+function earthAttack() {
+	playerAttack = 'Tierra'
+	randomEnemyAttack()
+}
+
+function randomEnemyAttack() {
+	let randomAttack = random(1,3)
+
+	if (randomAttack == 1) {
+		enemyAttack = 'Fuego'
+	} else if (randomAttack == 2) {
+		enemyAttack = 'Agua'
+	} else {
+		enemyAttack = 'Tierra'
+	}
+	combat()
+}
+
+function combat() {
+	if (playerAttack == enemyAttack) {
+		createMessage('Empate!')
+	} else if (playerAttack == 'Fuego' && enemyAttack == 'Tierra' || playerAttack == 'Agua' && enemyAttack == 'Fuego' || playerAttack == 'Agua' && enemyAttack == 'Fuego' || playerAttack == 'Tierra' && enemyAttack == 'Agua') {
+		createMessage('Ganaste!')
+	} else {
+		createMessage('Perdiste!')
+	}
+}
+
+function createMessage(result) {
+	let sectionMessages = document.getElementById('messages')
+	let paragraph = document.createElement('p')
+	paragraph.innerHTML = 'Tu mascota atacó con ' + playerAttack + ',  la mascota del enermigo atacó con ' + enemyAttack + '. ' + result
+
+	sectionMessages.appendChild(paragraph)
+}
+
+function random(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 window.addEventListener('load', startGame)
