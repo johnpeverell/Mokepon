@@ -7,6 +7,9 @@ function startGame() {
 	let sectionSelectAtack = document.getElementById('select-attack')
 	sectionSelectAtack.style.display = 'none'
 
+	let sectionRestartGame = document.getElementById('restart')
+	sectionRestartGame.style.display = 'none'
+
 	let buttonPet = document.getElementById('button-select-pet')
 	buttonPet.addEventListener('click', selectPetPlayer)
 
@@ -147,6 +150,9 @@ function finalMessage(finalGame) {
 	buttonWater.disabled = true
 	let buttonEarth = document.getElementById('button-earth')
 	buttonEarth.disabled = true
+
+	let sectionRestartGame = document.getElementById('restart')
+	sectionRestartGame.style.display = "block"
 
 }
 
