@@ -4,6 +4,9 @@ let playerLives = 3
 let enemyLives = 3
 
 function startGame() {
+	let sectionSelectAtack = document.getElementById('select-attack')
+	sectionSelectAtack.style.display = 'none'
+
 	let buttonPet = document.getElementById('button-select-pet')
 	buttonPet.addEventListener('click', selectPetPlayer)
 
@@ -19,6 +22,9 @@ function startGame() {
 }
 
 function selectPetPlayer() {
+	let sectionSelectAtack = document.getElementById('select-attack')
+	sectionSelectAtack.style.display = 'block'
+
 	let inputHipodogue = document.getElementById('hipodogue')
 	let inputCapipepo = document.getElementById('capipepo')
 	let inputRatigueya = document.getElementById('ratigueya')
