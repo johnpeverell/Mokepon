@@ -132,6 +132,13 @@ function finalMessage(finalGame) {
 
 	sectionMessages.appendChild(paragraph)
 
+	let buttonFire = document.getElementById('button-fire')
+	buttonFire.disabled = true
+	let buttonWater = document.getElementById('button-water')
+	buttonWater.disabled = true
+	let buttonEarth = document.getElementById('button-earth')
+	buttonEarth.disabled = true
+
 }
 
 function restartGame() {
