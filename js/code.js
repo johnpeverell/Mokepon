@@ -13,6 +13,9 @@ function startGame() {
 	buttonWater.addEventListener('click', waterAttack)
 	let buttonEarth = document.getElementById('button-earth')
 	buttonEarth.addEventListener('click', earthAttack)
+
+	let buttonRestart = document.getElementById('button-restart')
+	buttonRestart.addEventListener('click', restartGame)
 }
 
 function selectPetPlayer() {
@@ -129,6 +132,10 @@ function finalMessage(finalGame) {
 
 	sectionMessages.appendChild(paragraph)
 
+}
+
+function restartGame() {
+	location.reload()
 }
 
 function random(min, max) {
